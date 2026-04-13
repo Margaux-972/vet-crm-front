@@ -21,10 +21,11 @@ export default function Home() {
         >
           Animaux
         </Link>
-
-        <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition text-center">
-          Nouveau propriétaire
-        </div>
+        <Link href="/proprietaires/creation">
+          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition text-center">
+            Nouveau propriétaire
+          </div>
+        </Link>
 
         <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition text-center">
           Nouvel animal

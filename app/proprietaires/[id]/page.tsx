@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Pet } from "../../types/index";
+import { redirect } from "next/navigation";
 
 export default async function ProprietairePage({
   params,
@@ -49,6 +50,11 @@ export default async function ProprietairePage({
             )}
           </div>
         </div>
+        <Link href={`/proprietaires/${proprietaire.id}/modification`}>
+          <button className="bg-[#098c53] text-white px-4 py-2 rounded mt-5 cursor-pointer">
+            Modifier
+          </button>
+        </Link>
       </div>
     </main>
   );
