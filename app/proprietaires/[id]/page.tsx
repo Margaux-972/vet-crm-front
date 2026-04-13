@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Pet } from "../../types/index";
-import { redirect } from "next/navigation";
+import DeleteModal from "@/app/components/DeleteModal";
+import BackButton from "@/app/components/BackButton";
 
 export default async function ProprietairePage({
   params,
@@ -14,6 +15,7 @@ export default async function ProprietairePage({
   return (
     <main className="min-h-screen bg-[#CFEE9E] p-6">
       <div className="max-w-3xl mx-auto mt-10">
+        <BackButton />
         <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
           <h1 className="text-2xl font-bold text-gray-900 mb-6">
             {proprietaire.firstName} {proprietaire.lastName}
@@ -50,11 +52,19 @@ export default async function ProprietairePage({
             )}
           </div>
         </div>
-        <Link href={`/proprietaires/${proprietaire.id}/modification`}>
-          <button className="bg-[#098c53] text-white px-4 py-2 rounded mt-5 cursor-pointer">
-            Modifier
-          </button>
-        </Link>
+        <section className="flex justify-between">
+          <Link href={`/proprietaires/${proprietaire.id}/modification`}>
+            <button className="bg-[#098c53] text-white px-4 py-2 rounded mt-5 cursor-pointer">
+              Modifier
+            </button>
+          </Link>
+          <DeleteModal
+            id={proprietaire.id}
+            endpoint="clients"
+            redirectTo="/proprietaires"
+            label="ce propriétaire"
+          />
+        </section>
       </div>
     </main>
   );

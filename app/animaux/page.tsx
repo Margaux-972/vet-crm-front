@@ -32,9 +32,10 @@ export default async function AnimauxPage() {
                   <h3 className="text-sm font-semibold text-gray-700 mb-2">
                     Propriétaire:
                   </h3>
-                  <p>
+
+                  <span className="bg-[#b7ed9c] text-[#098c53] px-3 py-1 rounded-full text-xs font-medium">
                     {animal.client.firstName} {animal.client.lastName}
-                  </p>
+                  </span>
                 </div>
               </Link>
             </div>

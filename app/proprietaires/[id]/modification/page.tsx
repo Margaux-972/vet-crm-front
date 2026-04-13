@@ -1,6 +1,7 @@
+import BackButton from "@/app/components/BackButton";
 import { redirect } from "next/navigation";
 
-export default async function ModificationPage({
+export default async function EditClientPage({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -9,8 +10,10 @@ export default async function ModificationPage({
 
   const response = await fetch(`http://localhost:3000/clients/${id}`);
   const proprietaire = await response.json();
+  const civilityOptions = ["Mr", "Mme"];
   return (
-    <main className="min-h-screen bg-[#CFEE9E] flex items-center justify-center p-6">
+    <main className="min-h-screen bg-[#CFEE9E] flex flex-col items-center justify-center p-6">
+      <BackButton />
       <div className="w-full max-w-md bg-white rounded-xl shadow-md p-8">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
           Mofifier un propriétaire
@@ -37,10 +40,13 @@ export default async function ModificationPage({
           <select
             name="civility"
             className="mt-1 border border-gray-300 rounded-lg p-2 w-full"
+            defaultValue={proprietaire.civility}
           >
-            <option value="">Sélectionnez une option</option>
-            <option value="Mr">Mr</option>
-            <option value="Mme">Mme</option>
+            {civilityOptions.map((civility) => (
+              <option key={civility} value={civility}>
+                {civility}
+              </option>
+            ))}
           </select>
           <label htmlFor="firstName">Prénom</label>
           <input
