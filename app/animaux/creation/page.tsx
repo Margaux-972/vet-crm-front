@@ -1,3 +1,5 @@
+import BackButton from "@/app/components/BackButton";
+import { Client } from "@/app/types";
 import { redirect } from "next/navigation";
 
 export default async function CreationAnimal() {
@@ -10,6 +12,7 @@ export default async function CreationAnimal() {
   return (
     <main className="min-h-screen bg-[#CFEE9E] flex items-center justify-center p-6">
       <div className="w-full max-w-md bg-white rounded-xl shadow-md p-8">
+        <BackButton />
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
           Créer un nouvel animal
         </h1>
@@ -35,7 +38,7 @@ export default async function CreationAnimal() {
         >
           <div>
             <label htmlFor="name" className="text-sm font-medium text-gray-700">
-              Nom
+              Prénom
             </label>
             <input
               type="text"
@@ -110,7 +113,7 @@ export default async function CreationAnimal() {
               className="mt-1 border border-gray-300 rounded-lg p-2 w-full"
             >
               <option value="">Choisir un propriétaire</option>
-              {proprietaires.map((proprio: any) => {
+              {proprietaires.map((proprio: Client) => {
                 return (
                   <option key={proprio.id} value={proprio.id}>
                     {proprio.firstName} {proprio.lastName}

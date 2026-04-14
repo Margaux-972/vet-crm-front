@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Client, Pet } from "./types";
 
 export default async function Home() {
   const clientResponse = await fetch("http://localhost:3000/clients", {
@@ -64,7 +65,7 @@ export default async function Home() {
           <h2 className="font-semibold mb-4">Derniers propriétaires :</h2>
 
           <div className="space-y-2">
-            {lastProprietaires.map((proprio: any) => (
+            {lastProprietaires.map((proprio: Client) => (
               <p
                 key={proprio.id}
                 className="bg-[#b7ed9c] text-[#098c53] px-3 py-1 rounded-full text-xs font-medium"
@@ -79,7 +80,7 @@ export default async function Home() {
           <h2 className="font-semibold mb-4">Derniers animaux :</h2>
 
           <div className="space-y-2">
-            {lastAnimaux.map((animal: any) => (
+            {lastAnimaux.map((animal: Pet) => (
               <p
                 key={animal.id}
                 className="bg-[#b7ed9c] text-[#098c53] px-3 py-1 rounded-full text-xs font-medium"
