@@ -10,7 +10,7 @@ export default async function ProprietairePage({
 }) {
   const { id } = await params;
 
-  const response = await fetch(`http://localhost:3000/clients/${id}`);
+  const response = await fetch(`${process.env.APP_URL}/clients/${id}`);
   const proprietaire = await response.json();
   return (
     <main className="min-h-screen bg-[#CFEE9E] p-6">

@@ -8,7 +8,7 @@ export default async function EditPetPage({
 }) {
   const { id } = await params;
 
-  const response = await fetch(`http://localhost:3000/pets/${id}`, {
+  const response = await fetch(`${process.env.APP_URL}/pets/${id}`, {
     cache: "no-store",
   });
 
@@ -26,7 +26,7 @@ export default async function EditPetPage({
           className="flex flex-col gap-4"
           action={async (formData) => {
             "use server";
-            await fetch(`http://localhost:3000/pets/${id}`, {
+            await fetch(`${process.env.APP_URL}/pets/${id}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",

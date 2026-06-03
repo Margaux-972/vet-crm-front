@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Client, Pet } from "./types";
 
 export default async function Home() {
-  const clientResponse = await fetch("http://localhost:3000/clients", {
+  const clientResponse = await fetch(`${process.env.APP_URL}/clients`, {
     cache: "no-store",
   });
 
-  const petResponse = await fetch("http://localhost:3000/pets", {
+  const petResponse = await fetch(`${process.env.APP_URL}/pets`, {
     cache: "no-store",
   });
 

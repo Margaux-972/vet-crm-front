@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Client, Pet } from "../types/index";
 
 export default async function ProprietairesPage() {
-  const response = await fetch("http://localhost:3000/clients", {
+  const response = await fetch(`${process.env.APP_URL}/clients`, {
     cache: "no-store",
   });
 

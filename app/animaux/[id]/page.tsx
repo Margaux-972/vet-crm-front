@@ -9,7 +9,7 @@ export default async function AnimalPage({
 }) {
   const { id } = await params;
 
-  const response = await fetch(`http://localhost:3000/pets/${id}`);
+  const response = await fetch(`${process.env.APP_URL}/pets/${id}`);
   const animal = await response.json();
   return (
     <main className="min-h-screen bg-[#CFEE9E] p-6">

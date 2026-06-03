@@ -10,7 +10,7 @@ export default async function EditClientPage({
 }) {
   const { id } = await params;
 
-  const response = await fetch(`http://localhost:3000/clients/${id}`);
+  const response = await fetch(`${process.env.APP_URL}/clients/${id}`);
   const proprietaire = await response.json();
 
   const sp = await searchParams;

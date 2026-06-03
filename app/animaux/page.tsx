@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Pet } from "../types/index";
 
 export default async function AnimauxPage() {
-  const response = await fetch("http://localhost:3000/pets", {
+  const response = await fetch(`${process.env.APP_URL}/pets`, {
     cache: "no-store",
   });
 

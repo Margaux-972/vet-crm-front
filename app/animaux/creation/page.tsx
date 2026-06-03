@@ -3,7 +3,7 @@ import { Client } from "@/app/types";
 import { redirect } from "next/navigation";
 
 export default async function CreationAnimal() {
-  const response = await fetch("http://localhost:3000/clients", {
+  const response = await fetch(`${process.env.APP_URL}/clients`, {
     cache: "no-store",
   });
 
@@ -21,7 +21,7 @@ export default async function CreationAnimal() {
           className="flex flex-col gap-4"
           action={async (formData) => {
             "use server";
-            await fetch("http://localhost:3000/pets", {
+            await fetch(`${process.env.APP_URL}/pets`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

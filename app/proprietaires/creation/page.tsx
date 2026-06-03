@@ -6,6 +6,7 @@ import BackButton from "@/app/components/BackButton";
 
 export default function CreationProprietaire() {
   const router = useRouter();
+  const baseUrl = process.env.APP_URL;
 
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ export default function CreationProprietaire() {
     const petWeight = Number(formData.get("petWeight"));
     const petSpecies = formData.get("petSpecies");
 
-    const response = await fetch("http://localhost:3000/clients", {
+    const response = await fetch(`${baseUrl}/clients`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
